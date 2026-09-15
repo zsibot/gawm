@@ -1,0 +1,29 @@
+adapter:
+  type: pingpong
+
+state_alignment:
+  # PingPongAdapter defines the state order; velocity is [3:6] and [13:16].
+  supervised_indices: [3, 4, 5, 13, 14, 15]
+  velocity_indices: [3, 4, 5, 13, 14, 15]
+
+dataset:
+  name: pingpong_single_expert_sim_20260716_1643
+  num_steps: ${eval:'${wm.num_preds} + ${wm.history_size}'}
+  frameskip: 5
+  keys_to_load:
+    - pixels
+    - action
+    - proprio_effector_pos
+    - proprio_effector_vel
+    - proprio_gripper_opening
+    - privileged_target_box_pos
+    - privileged_ball_pos
+    - privileged_ball_vel
+  keys_to_cache:
+    - action
+    - proprio_effector_pos
+    - proprio_effector_vel
+    - proprio_gripper_opening
+    - privileged_target_box_pos
+    - privileged_ball_pos
+    - privileged_ball_vel

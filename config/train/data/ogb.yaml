@@ -1,0 +1,26 @@
+adapter:
+  type: cube
+  num_cubes: 1
+
+state_alignment:
+  # state_align: configuration[0:21], arm velocity[21:27], cube velocity[27:33]
+  supervised_indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                       11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                       21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+  velocity_indices: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+
+dataset:
+  name: ogbench/cube_single_expert
+  num_steps: ${eval:'${wm.num_preds} + ${wm.history_size}'}
+  frameskip: 5
+  keys_to_load:
+    - pixels
+    - action
+    - observation
+    - qvel
+  keys_to_cache:
+    - action
+    - observation
+    - qvel
+#  keys_to_merge:
+#    proprio: proprio

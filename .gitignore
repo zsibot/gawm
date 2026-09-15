@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local caches and run outputs
+.hydra/
+.pytest_cache/
+lightning_logs/
+outputs/
+multirun/
+wandb/
+
+# Datasets, checkpoints, and rollout videos
+*.h5
+*.hdf5
+*.ckpt
+*.pt
+*.pth
+*.mp4
+*results*.txt

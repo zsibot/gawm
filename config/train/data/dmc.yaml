@@ -1,0 +1,19 @@
+adapter:
+  type: reacher
+
+state_alignment:
+  # state_align: configuration[0:6], velocity[6:8]
+  supervised_indices: [0,1,2,3,4,5,6,7]
+  velocity_indices: [6, 7]
+
+dataset:
+  num_steps: ${eval:'${wm.num_preds} + ${wm.history_size}'}
+  frameskip: 5
+  name: reacher
+  keys_to_load:
+    - pixels
+    - action
+    - observation
+  keys_to_cache:
+    - action
+    - observation

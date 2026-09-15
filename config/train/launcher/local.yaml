@@ -1,0 +1,11 @@
+# @package _global_
+# Local launcher configuration (no SLURM)
+
+defaults:
+  - override /hydra/launcher: basic
+
+wandb:
+  enabled: True
+  config:
+    project: le-wm
+    entity: le-wm
